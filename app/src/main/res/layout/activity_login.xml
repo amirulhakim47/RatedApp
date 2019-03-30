@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_email" />-->
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/regButton"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -111,7 +111,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/reg_btn_style"
-        android:text="Login"
+        android:text="Register"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -158,14 +158,14 @@
         app:layout_constraintTop_toTopOf="@+id/loginBtn" />
 
     <Button
-        android:id="@+id/regButton"
+        android:id="@+id/loginBtn"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Register"
+        android:text="Login"
         android:background="@drawable/reg_btn_style"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
