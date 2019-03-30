@@ -26,7 +26,7 @@
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:textColorHint="#000000"
+        android:textColorHint="#686868"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -68,7 +68,7 @@
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_email"
-        android:textColorHint="#000000"
+        android:textColorHint="#686868"
         app:passwordToggleEnabled = "true"
         app:passwordToggleTint="@color/colorHint"
         app:passwordToggleDrawable="@drawable/ic_remove_red_eye_black_24dp"
