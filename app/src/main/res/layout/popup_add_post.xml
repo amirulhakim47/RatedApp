@@ -24,7 +24,6 @@
         android:layout_marginTop="1dp"
         android:ems="10"
         android:hint="Title"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/popup_user_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +35,6 @@
         android:background="@drawable/popup_edittext_style"
         android:ems="10"
         android:hint="Description"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popup_title" />
@@ -82,7 +80,7 @@
         app:layout_constraintStart_toStartOf="@id/popup_add"
         app:layout_constraintTop_toTopOf="@+id/popup_add" />
 
-    <RatingBar
+   <!-- <RatingBar
         android:theme="@style/RatingBar"
         android:numStars="5"
         android:stepSize="0.5"
@@ -97,5 +95,5 @@
         app:layout_constraintBottom_toTopOf="@+id/popup_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popup_img" />
+        app:layout_constraintTop_toBottomOf="@+id/popup_img" />-->
 </android.support.constraint.ConstraintLayout>

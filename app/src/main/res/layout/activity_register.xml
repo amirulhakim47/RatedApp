@@ -73,7 +73,7 @@
             android:background="@drawable/reg_edittext_style"
             android:ems="10"
             android:hint="Username"
-            android:inputType="textEmailAddress" />
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
 
