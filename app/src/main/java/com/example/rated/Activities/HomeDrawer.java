@@ -189,7 +189,7 @@ public class HomeDrawer extends AppCompatActivity
         popupDescription = popAddPost.findViewById(R.id.popup_description);
         popupAddBtn = popAddPost.findViewById(R.id.popup_add);
         popupClickProgress = popAddPost.findViewById(R.id.popup_progressBar);
-        popupRatingBar = popAddPost.findViewById(R.id.ratingBar);
+     //   popupRatingBar = popAddPost.findViewById(R.id.ratingBar);
 
         // load Current user profile photo
 
@@ -209,7 +209,7 @@ public class HomeDrawer extends AppCompatActivity
 
                 if (!popupTitle.getText().toString().isEmpty()
                         && !popupDescription.getText().toString().isEmpty()
-                        && popupRatingBar.getRating() > 0
+                    //    && popupRatingBar.getRating() > 0
                         && pickedImgUri != null ) {
 
                     //everything is okey no empty or null value
@@ -226,14 +226,14 @@ public class HomeDrawer extends AppCompatActivity
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     String imageDownlaodLink = uri.toString();
-                                    String rating = String.valueOf(popupRatingBar.getRating());
+                                  //  String rating = String.valueOf(popupRatingBar.getRating());
                                     // create post Object
                                     Post post = new Post(popupTitle.getText().toString(),
                                             popupDescription.getText().toString(),
                                             imageDownlaodLink,
-                                            rating,
                                             currentUser.getUid(),
-                                            currentUser.getPhotoUrl().toString());
+                                            currentUser.getPhotoUrl().toString(),
+                                            currentUser.getDisplayName());
 
                                     // Add post to firebase database
 

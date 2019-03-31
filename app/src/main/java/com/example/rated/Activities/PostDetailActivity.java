@@ -82,44 +82,15 @@ public class PostDetailActivity extends AppCompatActivity{
         firebaseUser = firebaseAuth.getCurrentUser();
 
         detailRecyclerView = findViewById(R.id.post_detail_rv);
-        detailRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        detailRecyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        detailRecyclerView.setLayoutManager(layoutManager);
 
         postDetailAdapter = new PostDetailAdapter(PostDetailActivity.this,commentList);
         detailRecyclerView.setAdapter(postDetailAdapter);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        /*firebaseReference = firebaseDatabase.getReference("Comment");
-        firebaseReference.keepSynced(true);
-
-
-
-        //.child(firebaseUser.getUid())
-
-        firebaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot data1 : dataSnapshot.getChildren()) {
-
-                    Comment comment1 = data1.getValue(Comment.class);
-                    *//*Comment cmt = new Comment();
-                    cmt.setUid(data1.getValue(Comment.class).getUid());
-                    cmt.setContent(data1.getValue(Comment.class).getContent());
-                    cmt.setUimg(data1.getValue(Comment.class).getUimg());*//*
-                    commentList.add(comment1);
-
-                }
-
-                postDetailAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(PostDetailActivity.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
-            }
-        });*/
 
         //add comment button listener
 

@@ -92,8 +92,12 @@ public class HomeFragment extends Fragment {
         View fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
         postRecyclerView  = fragmentView.findViewById(R.id.PostRV);
         searchInput = fragmentView.findViewById(R.id.search_input);
-        postRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        postRecyclerView.setHasFixedSize(true);
+        /*postRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        postRecyclerView.setHasFixedSize(true);*/
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        postRecyclerView.setLayoutManager(layoutManager);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Posts");
         return fragmentView ;
@@ -114,7 +118,6 @@ public class HomeFragment extends Fragment {
 
                     Post post = postsnap.getValue(Post.class);
                     postList.add(post) ;
-
 
 
                 }
