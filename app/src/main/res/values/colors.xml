@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#3379e8</color>
     <color name="colorAccent">#00b0ff</color>
     <color name="colorHint">#546E7A</color>
+
+    <color name="card_bg_color">#f6f6f6</color>
+
 </resources>

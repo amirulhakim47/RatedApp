@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -47,10 +48,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        //set animation
+
+        holder.imgPost.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
+        holder.imgPostProfile.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
+        holder.tvName.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
+        holder.tvTitle.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
+
+
         holder.tvTitle.setText(mDataFiltered.get(position).getTitle());
+        holder.tvName.setText("by " + mDataFiltered.get(position).getUserName());
         Glide.with(mContext).load(mDataFiltered.get(position).getPicture()).into(holder.imgPost);
         Glide.with(mContext).load(mDataFiltered.get(position).getUserPhoto()).into(holder.imgPostProfile);
-        holder.rateBar.setRating(Float.parseFloat(mDataFiltered.get(position).getRating()));
+      //  holder.rateBar.setRating(Float.parseFloat(mDataFiltered.get(position).getRating()));
 
 
     }
@@ -103,21 +113,21 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvTitle;
+        TextView tvTitle, tvName;
         ImageView imgPost;
         ImageView imgPostProfile;
-        RatingBar rateBar;
+     //   RatingBar rateBar;
 
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
+            tvName = itemView.findViewById(R.id.row_poster_name);
             tvTitle = itemView.findViewById(R.id.row_post_title);
             imgPost = itemView.findViewById(R.id.row_post_img);
             imgPostProfile = itemView.findViewById(R.id.row_post_profile_img);
-            rateBar = itemView.findViewById(R.id.row_rating);
+          //  rateBar = itemView.findViewById(R.id.row_rating);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -131,11 +141,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                     postDetailActivity.putExtra("postKey",mData.get(position).getPostKey());
                     postDetailActivity.putExtra("userPhoto",mData.get(position).getUserPhoto());
                     // will fix this later i forgot to add user name to post object
-                    //postDetailActivity.putExtra("userName",mData.get(position).getUsername);
+                    postDetailActivity.putExtra("userName",mData.get(position).getUserName());
                     //  TODO: add timestamp in model
                     //  long timestamp  = (long) mData.get(position).getTimeStamp();
                     //  postDetailActivity.putExtra("postDate",timestamp) ;
-                    postDetailActivity.putExtra("rating",mData.get(position).getRating());
+                   // postDetailActivity.putExtra("rating",mData.get(position).getRating());
 
                     mContext.startActivity(postDetailActivity);
                 }

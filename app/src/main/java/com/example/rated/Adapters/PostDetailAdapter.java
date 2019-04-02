@@ -8,7 +8,9 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -52,14 +54,9 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.My
         myViewHolder.usrTimeStamp.setText(mData.get(position).getDate());
         // Glide.with(mContext).load(mData.get(position).getTimestamp()).into(myViewHolder.usrTimeStamp);
 
-
-        //set the timestamp difference
-        /*String timestampDifference = getTimestampDifference(getItem(position));
-        if(!timestampDifference.equals("0")){
-            holder.timestamp.setText(timestampDifference + " d");
-        }else{
-            holder.timestamp.setText("today");
-        }*/
+        //animation
+        myViewHolder.uimg.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_transition_animation));
+        myViewHolder.container.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.fade_scale_animation));
 
     }
 
@@ -73,6 +70,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.My
         TextView content,uname;
         TextView usrTimeStamp;
         CircleImageView uimg;
+        LinearLayout container;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +79,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.My
             uname = (TextView) itemView.findViewById(R.id.comment_uname);
             usrTimeStamp = (TextView) itemView.findViewById(R.id.comment_time);
             uimg = (CircleImageView) itemView.findViewById(R.id.comment_img);
+            container = (LinearLayout) itemView.findViewById(R.id.comment_container);
 
         }
 

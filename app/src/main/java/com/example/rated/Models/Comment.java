@@ -25,7 +25,7 @@ public class Comment {
         this.uname = uname;
         Calendar c = Calendar.getInstance();
         // Apr 21, 2017 at 1:17pm
-        SimpleDateFormat df = new SimpleDateFormat("dd MMM,yyyy 'at' h:ma", Locale.getDefault());
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         date = df.format(c.getTime());
         // negative to allow firebase to order i descending order
         timestamp = -1 * System.currentTimeMillis();

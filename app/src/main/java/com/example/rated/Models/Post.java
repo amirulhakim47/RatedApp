@@ -9,23 +9,31 @@ public class Post {
     private String title;
     private String description;
     private String picture;
-    private String rating;
     private String userId;
+    private String userName;
     private String userPhoto;
     private Object timeStamp ;
 
 
-    public Post(String title, String description, String picture, String rating, String userId, String userPhoto) {
+    public Post(String title, String description, String picture, String userId, String userPhoto, String userName) {
         this.title = title;
         this.description = description;
         this.picture = picture;
-        this.rating = rating;
         this.userId = userId;
+        this.userName = userName;
         this.userPhoto = userPhoto;
-        this.timeStamp = timeStamp;
+        this.timeStamp = ServerValue.TIMESTAMP;
     }
 
     public Post() {
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPostKey() {
@@ -60,13 +68,6 @@ public class Post {
         this.picture = picture;
     }
 
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
 
     public String getUserId() {
         return userId;

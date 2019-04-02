@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
@@ -86,6 +87,12 @@ public class PostDetailActivity extends AppCompatActivity{
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         detailRecyclerView.setLayoutManager(layoutManager);
+       // detailRecyclerView.setNestedScrollingEnabled(false);
+
+        //add line seperator in RV
+        /*DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(detailRecyclerView.getContext(),
+                layoutManager.getOrientation());
+        detailRecyclerView.addItemDecoration(dividerItemDecoration);*/
 
         postDetailAdapter = new PostDetailAdapter(PostDetailActivity.this,commentList);
         detailRecyclerView.setAdapter(postDetailAdapter);
