@@ -2,13 +2,18 @@ package com.example.rated.Models;
 
 import com.google.firebase.database.ServerValue;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Comment {
 
     private String content;
     private String uid;
     private String uimg;
     private String uname;
-    private Object timestamp;
+    private String date;
+    private Long timestamp;
 
     public Comment() {
     }
@@ -18,15 +23,37 @@ public class Comment {
         this.uid = uid;
         this.uimg = uimg;
         this.uname = uname;
-        this.timestamp = ServerValue.TIMESTAMP;
+        Calendar c = Calendar.getInstance();
+        // Apr 21, 2017 at 1:17pm
+        SimpleDateFormat df = new SimpleDateFormat("dd MMM,yyyy 'at' h:ma", Locale.getDefault());
+        date = df.format(c.getTime());
+        // negative to allow firebase to order i descending order
+        timestamp = -1 * System.currentTimeMillis();
     }
+    //TODO: change date format to "days ago"
 
-    public Comment(String content, String uid, String uimg, String uname, Object timestamp) {
+    public Comment(String content, String uid, String uimg, String uname, Long timestamp) {
         this.content = content;
         this.uid = uid;
         this.uimg = uimg;
         this.uname = uname;
         this.timestamp = timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getContent() {
@@ -61,11 +88,4 @@ public class Comment {
         this.uname = uname;
     }
 
-    public Object getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Object timestamp) {
-        this.timestamp = timestamp;
-    }
 }

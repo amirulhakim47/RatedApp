@@ -49,9 +49,17 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.My
         Glide.with(mContext).load(mData.get(position).getUimg()).into(myViewHolder.uimg);
         myViewHolder.content.setText(mData.get(position).getContent());
         myViewHolder.uname.setText(mData.get(position).getUname());
-        // myViewHolder.usrTimeStamp.setText(mData.get(position).getTimestamp());
+        myViewHolder.usrTimeStamp.setText(mData.get(position).getDate());
         // Glide.with(mContext).load(mData.get(position).getTimestamp()).into(myViewHolder.usrTimeStamp);
 
+
+        //set the timestamp difference
+        /*String timestampDifference = getTimestampDifference(getItem(position));
+        if(!timestampDifference.equals("0")){
+            holder.timestamp.setText(timestampDifference + " d");
+        }else{
+            holder.timestamp.setText("today");
+        }*/
 
     }
 
@@ -63,7 +71,7 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView content,uname;
-        //TextView usrTimeStamp;
+        TextView usrTimeStamp;
         CircleImageView uimg;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -71,18 +79,9 @@ public class PostDetailAdapter extends RecyclerView.Adapter<PostDetailAdapter.My
 
             content = (TextView) itemView.findViewById(R.id.comment_content);
             uname = (TextView) itemView.findViewById(R.id.comment_uname);
-          //  usrTimeStamp = itemView.findViewById(R.id.row_comment_time);
+            usrTimeStamp = (TextView) itemView.findViewById(R.id.comment_time);
             uimg = (CircleImageView) itemView.findViewById(R.id.comment_img);
 
-
-            //get data
-
-           /* Intent postDetailActivity = new Intent(mContext, PostDetailActivity.class);
-            int position = getAdapterPosition();
-
-            postDetailActivity.putExtra("content",mData.get(position).getContent());
-            postDetailActivity.putExtra("uimg",mData.get(position).getUimg());
-            mContext.startActivity(postDetailActivity);*/
         }
 
     }
